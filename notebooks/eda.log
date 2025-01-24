@@ -11,3 +11,9 @@
 2025-01-24 19:25:44,672 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
 2025-01-24 19:25:44,751 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
 2025-01-24 19:25:45,128 - INFO - Categorical feature distributions visualized.
+2025-01-24 19:40:59,680 - INFO - Performing correlation analysis...
+2025-01-24 19:40:59,827 - INFO - Correlation analysis completed.
+2025-01-24 19:41:21,829 - INFO - Checking for missing values...
+2025-01-24 19:41:21,873 - INFO - No missing values found.
+2025-01-24 19:41:42,789 - INFO - Detecting outliers in numerical features...
+2025-01-24 19:41:43,194 - INFO - Outlier detection completed.
