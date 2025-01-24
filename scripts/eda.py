@@ -55,10 +55,10 @@ class EDA:
         Visualize the distribution of numerical features using histograms.
         """
         logging.info("Visualizing numerical feature distributions...")
-        numerical_columns = self.data.select_dtypes(include=['int64', 'float64']).columns
+        numerical_columns = ['Amount', 'Value']  # Focus on numerical columns
         plt.figure(figsize=(15, 10))
         for i, column in enumerate(numerical_columns, 1):
-            plt.subplot(3, 3, i)
+            plt.subplot(2, 2, i)
             sns.histplot(self.data[column], kde=True)
             plt.title(f'Distribution of {column}')
         plt.tight_layout()
@@ -70,10 +70,10 @@ class EDA:
         Analyze the distribution of categorical features using bar plots.
         """
         logging.info("Visualizing categorical feature distributions...")
-        categorical_columns = self.data.select_dtypes(include=['object', 'category']).columns
+        categorical_columns = ['CurrencyCode', 'CountryCode', 'ProductCategory', 'ChannelId', 'FraudResult']  # Focus on categorical columns
         plt.figure(figsize=(15, 10))
         for i, column in enumerate(categorical_columns, 1):
-            plt.subplot(3, 3, i)
+            plt.subplot(3, 2, i)
             sns.countplot(y=self.data[column], order=self.data[column].value_counts().index)
             plt.title(f'Distribution of {column}')
         plt.tight_layout()
@@ -85,9 +85,9 @@ class EDA:
         Perform correlation analysis on numerical features and visualize the correlation matrix.
         """
         logging.info("Performing correlation analysis...")
-        numerical_columns = self.data.select_dtypes(include=['int64', 'float64']).columns
+        numerical_columns = ['Amount', 'Value']  # Focus on numerical columns
         correlation_matrix = self.data[numerical_columns].corr()
-        plt.figure(figsize=(10, 8))
+        plt.figure(figsize=(8, 6))
         sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
         plt.title('Correlation Matrix')
         plt.show()
@@ -113,10 +113,10 @@ class EDA:
         Detect outliers in numerical features using box plots.
         """
         logging.info("Detecting outliers in numerical features...")
-        numerical_columns = self.data.select_dtypes(include=['int64', 'float64']).columns
+        numerical_columns = ['Amount', 'Value']  # Focus on numerical columns
         plt.figure(figsize=(15, 10))
         for i, column in enumerate(numerical_columns, 1):
-            plt.subplot(3, 3, i)
+            plt.subplot(2, 2, i)
             sns.boxplot(x=self.data[column])
             plt.title(f'Box Plot of {column}')
         plt.tight_layout()
@@ -137,7 +137,3 @@ class EDA:
         self.outlier_detection()
         logging.info("EDA process completed.")
 
-# Example usage:
-# Assuming the dataset is stored in a file called 'data.csv'
-# eda = EDA('data.csv')
-# eda.run_all()
