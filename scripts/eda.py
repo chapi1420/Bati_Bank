@@ -55,7 +55,7 @@ class EDA:
         Visualize the distribution of numerical features using histograms.
         """
         logging.info("Visualizing numerical feature distributions...")
-        numerical_columns = ['Amount', 'Value']  # Focus on numerical columns
+        numerical_columns = ['Amount', 'Value']  
         plt.figure(figsize=(15, 10))
         for i, column in enumerate(numerical_columns, 1):
             plt.subplot(2, 2, i)
@@ -85,7 +85,7 @@ class EDA:
         Perform correlation analysis on numerical features and visualize the correlation matrix.
         """
         logging.info("Performing correlation analysis...")
-        numerical_columns = ['Amount', 'Value']  # Focus on numerical columns
+        numerical_columns = ['Amount', 'Value'] 
         correlation_matrix = self.data[numerical_columns].corr()
         plt.figure(figsize=(8, 6))
         sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f')
@@ -113,7 +113,7 @@ class EDA:
         Detect outliers in numerical features using box plots.
         """
         logging.info("Detecting outliers in numerical features...")
-        numerical_columns = ['Amount', 'Value']  # Focus on numerical columns
+        numerical_columns = ['Amount', 'Value']  
         plt.figure(figsize=(15, 10))
         for i, column in enumerate(numerical_columns, 1):
             plt.subplot(2, 2, i)
