@@ -52,10 +52,11 @@ class FeatureEngineering:
         # Impute missing numerical values with the mean
         num_imputer = SimpleImputer(strategy='mean')
         self.df['Amount'] = num_imputer.fit_transform(self.df[['Amount']])
-
+        
         # Impute missing categorical values with the mode
         cat_imputer = SimpleImputer(strategy='most_frequent')
-        self.df['ProductCategory'] = cat_imputer.fit_transform(self.df[['ProductCategory']])
+        self.df['ProductCategory'] = cat_imputer.fit_transform(self.df[['ProductCategory']]).ravel()  # Flatten the array
+
 
     def normalize_and_standardize(self):
         """
